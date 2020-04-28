@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<html>
+<head>
+ <title>去中心化投票</title>
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+ <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+ <style>
+   </style>
+</head>
+<body class="row">
+ <h1 class="text-center banner">去中心化投票应用 （1.0版本）</h1>
+ <div class="container">
+  <div class="row margin-top-3">
+   <div class="col-sm-12">
+    <h3>如何使用该DApp</h3>
+    <strong>Step 1</strong>: 安装 <a href="https://metamask.io/" target="_blank">metamask plugin</a> 并在Ropsten Test Network上开通一个账户。
+    <br><br>
+    <strong>Step 2</strong>: 在下面输入您要购买的代币总数来购买代币。
+    <br><br>
+    <strong>Step 3</strong>: 通过输入候选人的姓名和要投票的代币来投票给他们。
+    <br><br>
+    <strong>Step 4</strong>: 输入您的帐户地址以查找您的投票活动。
+	<br><br>
+   </div>
+  </div>
+  <div class="row margin-top-3">
+   <div class="col-sm-7">
+    <h2>候选人列表</h2>
+    <div class="table-responsive">
+     <table class="table table-bordered">
+      <thead>
+       <tr>
+        <th></th>
+        <th></th>
+       </tr>
+      </thead>
+      <tbody id="candidate-rows">
+      </tbody>
+     </table>
+    </div>
+   </div>
+   <div class="col-sm-offset-1 col-sm-4">
+    <h2>代币</h2>
+    <div class="table-responsive">
+     <table class="table table-bordered">
+      <tr>
+       <th>代币信息</th>
+       <th>代币价值</th>
+      </tr>
+      <tr>
+       <td></td>
+       <td id="tokens-total"></td>
+      </tr>
+      <tr>
+       <td></td>
+       <td id="tokens-sold"></td>
+      </tr>
+      <tr>
+       <td></td>
+       <td id="token-cost"></td>
+      </tr>
+      <tr>
+       <td></td>
+       <td id="contract-balance"></td>
+      </tr>
+     </table>
+    </div>
+   </div>
+  </div>
+  <hr>
+  <div class="row margin-bottom-3">
+   <div class="col-sm-7 form">
+    <h2>为候选人投票</h2>
+    <div id="msg"></div>
+    <input type="text" id="candidate" class="form-control" placeholder="输入候选人姓名"/>
+    <br>
+    <br>
+    <input type="text" id="vote-tokens" class="form-control" placeholder="代币地址"/>
+    <br>
+    <br>
+    <a href="#" onclick="voteForCandidate(); return false;" class="btn btn-primary">投票</a>
+   </div>
+   <div class="col-sm-offset-1 col-sm-4">
+    <div class="col-sm-12 form">
+     <h2>购买代币</h2>
+     <div id="buy-msg"></div>
+     <input type="text" id="buy" class="col-sm-8" placeholder="购买代币的数量"/>
+     <a href="#" onclick="buyTokens(); return false;" class="btn btn-primary">购买</a>
+    </div>
+    <div class="col-sm-12 margin-top-3 form">
+     <h2 class="">查看投票人信息</h2>
+     <input type="text" id="voter-info", class="col-sm-8" placeholder="Enter the voter address" />
+     <a href="#" onclick="lookupVoterInfo(); return false;" class="btn btn-primary">查看</a>
+     <div class="voter-details row text-left">
+      <div id="tokens-bought" class="margin-top-3 col-md-12"></div>
+      <div id="votes-cast" class="col-md-12"></div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+<script src="app.js"></script>
+</html>
